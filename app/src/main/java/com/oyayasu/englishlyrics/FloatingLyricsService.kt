@@ -601,7 +601,7 @@ class FloatingLyricsService : Service() {
         }
         val minimize = iconButton(R.drawable.ic_minus, "Minimizar painel", ::showBubble)
         val close = iconButton(R.drawable.ic_close, "Encerrar", ::stopSelf)
-        panel.addView(header(song.title, ::showSearch, listOf(decrease, increase, minimize, close)))
+        panel.addView(header(song.title, { showSearch() }, listOf(decrease, increase, minimize, close)))
         panel.addView(text(song.artist, 12f, secondary).apply {
             maxLines = 1
             ellipsize = android.text.TextUtils.TruncateAt.END
@@ -612,7 +612,7 @@ class FloatingLyricsService : Service() {
         }
         panel.addView(separator, LinearLayout.LayoutParams(-1, dp(1)))
         val scroll = ScrollView(this).apply {
-            fillViewport = true
+            isFillViewport = true
             isVerticalScrollBarEnabled = false
             clipToPadding = false
         }
@@ -642,7 +642,7 @@ class FloatingLyricsService : Service() {
         searchJob?.cancel()
         dismissKeyboard()
         val (root, panel) = outerPanel(false)
-        panel.addView(header("Adicionar letra", ::showSearch, listOf(
+        panel.addView(header("Adicionar letra", { showSearch() }, listOf(
             iconButton(R.drawable.ic_minus, "Minimizar", ::showBubble),
             iconButton(R.drawable.ic_close, "Encerrar", ::stopSelf)
         )))
