@@ -622,7 +622,7 @@ class FloatingLyricsService : Service() {
             setPadding(dp(4), dp(17), dp(4), dp(18))
         }
         lyricsLabel = lyric
-        scroll.addView(lyric, ScrollView.LayoutParams(-1, -2))
+        scroll.addView(lyric, FrameLayout.LayoutParams(-1, -2))
         panel.addView(scroll, LinearLayout.LayoutParams(-1, 0, 1f))
         val actions = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
