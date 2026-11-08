@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">English Lyrics</string>
+    <string name="notification_channel">Leitor flutuante</string>
+</resources>
